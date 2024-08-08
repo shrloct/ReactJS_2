@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menggunakan If atau Ternary Operator</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const FormComponent = () => {
+        const [input, setInput] = React.useState("");
+        const [submittedValue, setSubmittedValue] = React.useState("");
+
+        const handleChange = (e) => {
+          setInput(e.target.value);
+        };
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          setSubmittedValue(input);
+        };
+
+        return (
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input type="text" value={input} onChange={handleChange} />
+              <button type="submit">Submit</button>
+            </form>
+            {submittedValue && <p>Kamu memasukan: {submittedValue}</p>}
+          </div>
+        );
+      };
+
+      ReactDOM.render(<FormComponent />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

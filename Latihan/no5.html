@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>No5</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const ItemList = ({ items }) => {
+        return (
+          <ul>
+            {items.map((item) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        );
+      };
+
+      const items = [
+        { id: 1, name: "Item 22" },
+        { id: 2, name: "Item 2" },
+        { id: 3, name: "Item 3" },
+      ];
+
+      ReactDOM.render(
+        <ItemList items={items} />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
